@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>6岁生日快乐，我的宝贝儿子！</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'STHeiti', sans-serif;
+            background: linear-gradient(135deg, #0a043c 0%, #1a237e 50%, #4a148c 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 15px rgba(255, 215, 0, 0.7);
+            color: #FFD700;
+            background: linear-gradient(to right, #FFD700, #FFECB3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #FFECB3;
+        }
+        
+        .birthday-boy {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-size: 1.8rem;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            animation: pulse 2s infinite;
+        }
+        
+        .age-number {
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: #FF4081;
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+            margin: 10px 0;
+            animation: bounce 2s infinite alternate;
+        }
+        
+        .cake-container {
+            position: relative;
+            margin: 40px auto;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        .cake {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .cake-base {
+            width: 200px;
+            height: 80px;
+            background: linear-gradient(to top, #8B4513 0%, #D2691E 100%);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+        
+        .cake-middle {
+            width: 160px;
+            height: 60px;
+            background: linear-gradient(to top, #FF69B4 0%, #FFB6C1 100%);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: -60px;
+            left: 20px;
+        }
+        
+        .cake-top {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(to top, #32CD32 0%, #90EE90 100%);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: -110px;
+            left: 40px;
+        }
+        
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: linear-gradient(to top, #FF4500 0%, #FF8C00 100%);
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            margin-left: -5px;
+            border-radius: 5px;
+        }
+        
+        .flame {
+            width: 20px;
+            height: 30px;
+            background: radial-gradient(circle, #FFD700 0%, #FF4500 70%, transparent 100%);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -180px;
+            left: 50%;
+            margin-left: -10px;
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.5s both;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+        
+        .message-box p {
+            margin-bottom: 15px;
+        }
+        
+        .message-box .signature {
+            text-align: right;
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-top: 20px;
+        }
+        
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .balloon {
+            width: 50px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+            animation: balloonFloat 5s ease-in-out infinite;
+        }
+        
+        .balloon:before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* 6个不同颜色的气球对应6岁 */
+        .balloon:nth-child(1) {
+            background: radial-gradient(circle at 30% 30%, #FF5252, #D32F2F);
+            animation-delay: 0s;
+        }
+        
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle at 30% 30%, #448AFF, #1976D2);
+            animation-delay: 0.3s;
+        }
+        
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle at 30% 30%, #69F0AE, #00C853);
+            animation-delay: 0.6s;
+        }
+        
+        .balloon:nth-child(4) {
+            background: radial-gradient(circle at 30% 30%, #FFD740, #FF8F00);
+            animation-delay: 0.9s;
+        }
+        
+        .balloon:nth-child(5) {
+            background: radial-gradient(circle at 30% 30%, #E040FB, #9C27B0);
+            animation-delay: 1.2s;
+        }
+        
+        .balloon:nth-child(6) {
+            background: radial-gradient(circle at 30% 30%, #18FFFF, #00BCD4);
+            animation-delay: 1.5s;
+        }
+        
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .firework {
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .firework-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.7);
+            font-size: 20px;
+            opacity: 0;
+            animation: heartFloat 8s linear infinite;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #B39DDB;
+            padding: 20px;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        /* 动画定义 */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes balloonFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            }
+        }
+        
+        @keyframes fireworkRocket {
+            0% {
+                transform: translateY(100vh) translateX(var(--startX)) scale(0.5);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(var(--endY)) translateX(var(--endX)) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fireworkExplosion {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .birthday-boy {
+                font-size: 1.5rem;
+                padding: 8px 20px;
+            }
+            
+            .age-number {
+                font-size: 3.5rem;
+            }
+            
+            .cake-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .message-box {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .birthday-boy {
+                font-size: 1.3rem;
+            }
+            
+            .age-number {
+                font-size: 3rem;
+            }
+            
+            .cake-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .cake-base {
+                width: 150px;
+                height: 60px;
+            }
+            
+            .cake-middle {
+                width: 120px;
+                height: 45px;
+                top: -45px;
+                left: 15px;
+            }
+            
+            .cake-top {
+                width: 90px;
+                height: 40px;
+                top: -85px;
+                left: 30px;
+            }
+            
+            .candle {
+                top: -125px;
+            }
+            
+            .flame {
+                top: -155px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heartsContainer"></div>
+    <div class="fireworks-container" id="fireworksContainer"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>6岁生日快乐！</h1>
+            <h2>我最亲爱的宝贝儿子</h2>
+            <div class="birthday-boy" id="birthdayBoy">[念念]</div>
+            <div class="age-number">6</div>
+            <div>岁啦！</div>
+        </div>
+        
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+        
+        <div class="cake-container">
+            <div class="cake">
+                <div class="cake-base"></div>
+                <div class="cake-middle"></div>
+                <div class="cake-top"></div>
+                <div class="candle"></div>
+                <div class="flame"></div>
+            </div>
+        </div>
+        
+        <div class="message-box">
+            <p>我最亲爱的儿子：</p>
+            <p>今天是你6岁的生日！爸爸/妈妈想对你说，你是我们生命中最珍贵的礼物。从你来到这个世界的第一天起，你就给我们带来了无尽的欢乐和幸福。</p>
+            <p>看着你一天天长大，从蹒跚学步到如今聪明伶俐的小小少年，每一天都充满惊喜。你的笑容是我们最大的动力，你的成长是我们最自豪的成就。</p>
+            <p>6岁是一个美好的年纪，愿你在这个新的一岁里，健康快乐地成长，勇敢探索世界，保持好奇心和善良的心。</p>
+            <p>愿你的每一天都充满阳光，愿你的梦想都能实现，愿健康、快乐和爱永远伴随你左右。</p>
+            <p class="signature">永远爱你的爸爸/妈妈</p>
+        </div>
+        
+        <div class="footer">
+            <p>这份祝福永远为你存在 ❤️</p>
+            <p>一直爱你的爸爸妈妈 ❤️</p>
+        </div>
+    </div>
+
+    <audio id="birthdayAudio" autoplay loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        // 获取DOM元素
+        const birthdayBoy = document.getElementById('birthdayBoy');
+        const fireworksContainer = document.getElementById('fireworksContainer');
+        const heartsContainer = document.getElementById('heartsContainer');
+        const birthdayAudio = document.getElementById('birthdayAudio');
+        
+        // 页面加载时初始化
+        window.addEventListener('DOMContentLoaded', function() {
+            // 自动播放生日音乐
+            birthdayAudio.play().catch(e => {
+                console.log("音频自动播放被阻止，需要用户交互");
+                // 如果自动播放被阻止，添加一个用户交互事件来启动音乐
+                document.addEventListener('click', function startAudio() {
+                    birthdayAudio.play();
+                    document.removeEventListener('click', startAudio);
+                }, { once: true });
+            });
+            
+            // 创建漂浮的爱心
+            createHearts();
+            
+            // 自动发射烟花
+            autoLaunchFireworks();
+            
+            // 初始化名字
+            initName();
+            
+            // 显示加载完成提示
+            console.log('6岁生日快乐页面加载完成！');
+        });
+        
+        // 创建漂浮的爱心
+        function createHearts() {
+            const heartCount = 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // 随机位置和动画延迟
+                const left = Math.random() * 100;
+                const delay = Math.random() * 8;
+                const duration = 6 + Math.random() * 4;
+                
+                heart.style.left = `${left}vw`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // 创建更真实的烟花效果
+        function createRealisticFirework(x, y, color) {
+            // 创建烟花容器
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            
+            // 设置烟花位置
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+            
+            // 创建烟花上升轨迹（火箭）
+            const rocket = document.createElement('div');
+            rocket.style.position = 'absolute';
+            rocket.style.width = '3px';
+            rocket.style.height = '10px';
+            rocket.style.backgroundColor = color;
+            rocket.style.borderRadius = '2px';
+            rocket.style.opacity = '0.8';
+            
+            // 计算结束位置（比开始位置高）
+            const endY = y - 150 + Math.random() * 100;
+            const endX = x + (Math.random() - 0.5) * 50;
+            
+            // 设置火箭动画
+            rocket.style.setProperty('--startX', '0px');
+            rocket.style.setProperty('--endX', `${endX - x}px`);
+            rocket.style.setProperty('--endY', `${endY - y}px`);
+            rocket.style.animation = `fireworkRocket 1s ease-out forwards`;
+            
+            firework.appendChild(rocket);
+            fireworksContainer.appendChild(firework);
+            
+            // 火箭到达顶点后爆炸
+            setTimeout(() => {
+                createExplosion(endX, endY, color);
+                firework.remove();
+            }, 900);
+        }
+        
+        // 创建爆炸效果
+        function createExplosion(x, y, color) {
+            const particleCount = 60;
+            const explosionRadius = 80 + Math.random() * 70;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('firework-particle');
+                
+                // 设置粒子颜色（随机变化）
+                const hue = parseInt(color.substring(1, 3), 16) + (Math.random() * 60 - 30);
+                const saturation = 80 + Math.random() * 20;
+                const lightness = 50 + Math.random() * 30;
+                particle.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+                
+                // 随机大小
+                const size = 3 + Math.random() * 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // 计算爆炸方向
+                const angle = (i / particleCount) * Math.PI * 2;
+                const distance = explosionRadius * (0.7 + Math.random() * 0.6);
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                
+                // 设置粒子位置和动画
+                particle.style.left = '0px';
+                particle.style.top = '0px';
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                particle.style.animation = `fireworkExplosion 1.2s ease-out forwards`;
+                
+                // 创建粒子容器
+                const particleContainer = document.createElement('div');
+                particleContainer.style.position = 'absolute';
+                particleContainer.style.left = `${x}px`;
+                particleContainer.style.top = `${y}px`;
+                particleContainer.appendChild(particle);
+                
+                fireworksContainer.appendChild(particleContainer);
+                
+                // 爆炸后移除粒子
+                setTimeout(() => {
+                    particleContainer.remove();
+                }, 1200);
+            }
+        }
+        
+        // 自动发射烟花
+        function autoLaunchFireworks() {
+            // 初始烟花爆发
+            setTimeout(() => {
+                // 第一波烟花
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const x = 100 + Math.random() * (window.innerWidth - 200);
+                        const y = window.innerHeight - 50;
+                        const colors = ['#FF5252', '#448AFF', '#69F0AE', '#FFD740', '#E040FB'];
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        createRealisticFirework(x, y, color);
+                    }, i * 300);
+                }
+            }, 1000);
+            
+            // 持续发射烟花
+            setInterval(() => {
+                const x = 100 + Math.random() * (window.innerWidth - 200);
+                const y = window.innerHeight - 50;
+                const colors = ['#FF5252', '#448AFF', '#69F0AE', '#FFD740', '#E040FB', '#FF4081', '#18FFFF'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                createRealisticFirework(x, y, color);
+            }, 2000);
+        }
+        
+        // 点击修改儿子名字
+        birthdayBoy.addEventListener('click', function() {
+            const currentName = this.textContent;
+            const newName = prompt('请输入你宝贝儿子的名字：', currentName);
+            
+            if (newName && newName.trim() !== '') {
+                this.textContent = newName.trim();
+                // 保存到本地存储
+                localStorage.setItem('sonName', newName.trim());
+            }
+        });
+        
+        // 初始化名字
+        function initName() {
+            const savedName = localStorage.getItem('sonName');
+            if (savedName) {
+                birthdayBoy.textContent = savedName;
+            }
+        }
+        
+        // 处理音乐播放错误
+        birthdayAudio.addEventListener('error', function() {
+            console.log("生日歌加载失败，尝试备用方案");
+            // 可以在这里添加备用音频源
+        });
+        
+        // 添加触摸反馈
+        birthdayBoy.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        birthdayBoy.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+        
+        // 添加页面点击事件，确保音乐可以播放
+        document.addEventListener('click', function() {
+            if (birthdayAudio.paused) {
+                birthdayAudio.play();
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
